@@ -149,10 +149,10 @@ func shortFormatPackageEvent(event TestEvent, exec *Execution) (string, error) {
 		return fmt.Sprintf(" (%s)", d)
 	}
 	fmtCoverage := func() string {
-		if pkg.coverage == "" {
+		if pkg.Coverage == "" {
 			return ""
 		}
-		return " (" + pkg.coverage + ")"
+		return " (" + pkg.Coverage + ")"
 	}
 	fmtEvent := func(action string) (string, error) {
 		return fmt.Sprintf("%s  %s%s%s\n",

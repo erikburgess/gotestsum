@@ -222,7 +222,7 @@ var expectedCoverageExecution = &Execution{
 				{Test: "TestSkippedWitLog"},
 			},
 			action:   ActionPass,
-			coverage: "coverage: 0.0% of statements",
+			Coverage: "Coverage: 0.0% of statements",
 			running:  map[string]TestCase{},
 		},
 		"gotest.tools/gotestsum/testjson/internal/stub": {
@@ -238,7 +238,7 @@ var expectedCoverageExecution = &Execution{
 				{Test: "TestSkippedWitLog"},
 			},
 			action:   ActionFail,
-			coverage: "coverage: 0.0% of statements",
+			Coverage: "Coverage: 0.0% of statements",
 			running:  map[string]TestCase{},
 		},
 		"gotest.tools/gotestsum/testjson/internal/badmain": {

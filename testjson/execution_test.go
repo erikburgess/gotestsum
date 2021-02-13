@@ -38,7 +38,7 @@ func TestExecution_Add_PackageCoverage(t *testing.T) {
 
 	pkg := exec.Package("mytestpkg")
 	expected := &Package{
-		coverage: "coverage: 33.1% of statements",
+		Coverage: "Coverage: 33.1% of statements",
 		output: map[int][]string{
 			0: {"coverage: 33.1% of statements\n"},
 		},

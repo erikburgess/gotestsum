@@ -82,7 +82,7 @@ type Package struct {
 	output map[int][]string
 	// coverage stores the code coverage output for the package without the
 	// trailing newline (ex: coverage: 91.1% of statements).
-	coverage string
+	Coverage string
 	// action identifies if the package passed or failed. A package may fail
 	// with no test failures if an init() or TestMain exits non-zero.
 	// skip indicates there were no tests.
@@ -291,7 +291,7 @@ func (e *Execution) addPackageEvent(pkg *Package, event TestEvent) {
 		pkg.action = event.Action
 	case ActionOutput:
 		if isCoverageOutput(event.Output) {
-			pkg.coverage = strings.TrimRight(event.Output, "\n")
+			pkg.Coverage = strings.TrimRight(event.Output, "\n")
 		}
 		if isCachedOutput(event.Output) {
 			pkg.cached = true

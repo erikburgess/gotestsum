@@ -89,7 +89,7 @@ func generate(exec *testjson.Execution, cfg Config) JUnitTestSuites {
 			Name:       cfg.FormatTestSuiteName(pkgname),
 			Tests:      pkg.Total,
 			Time:       formatDurationAsSeconds(pkg.Elapsed()),
-			Properties: packageProperties(version),
+			Properties: packageProperties(version, *pkg),
 			TestCases:  packageTestCases(pkg, cfg.FormatTestCaseClassname),
 			Failures:   len(pkg.Failed),
 		}
@@ -115,9 +115,11 @@ func formatDurationAsSeconds(d time.Duration) string {
 	return fmt.Sprintf("%f", d.Seconds())
 }
 
-func packageProperties(goVersion string) []JUnitProperty {
+func packageProperties(goVersion string, pkg testjson.Package) []JUnitProperty {
 	return []JUnitProperty{
 		{Name: "go.version", Value: goVersion},
+		{Name: "coverage", Value: pkg.Coverage},
+
 	}
 }
 
